@@ -1,12 +1,12 @@
 # XStats
 
-[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/rs/xstats) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/rs/xstats/master/LICENSE) [![Build Status](https://travis-ci.org/rs/xstats.svg?branch=master)](https://travis-ci.org/rs/xstats) [![Coverage](http://gocover.io/_badge/github.com/rs/xstats)](http://gocover.io/github.com/rs/xstats)
+[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/cool-rest/xstats) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/rs/xstats/master/LICENSE) [![Build Status](https://travis-ci.org/rs/xstats.svg?branch=master)](https://travis-ci.org/rs/xstats) [![Coverage](http://gocover.io/_badge/github.com/cool-rest/xstats)](http://gocover.io/github.com/cool-rest/xstats)
 
 Package `xstats` is a generic client for service instrumentation.
 
 `xstats` is inspired from Go-kit's [metrics](https://github.com/go-kit/kit/tree/master/metrics) package but it takes a slightly different path. Instead of having to create an instance for each metric, `xstats` use a single instance to log every metrics you want. This reduces the boiler plate when you have a lot a metrics in your app. It's also easier in term of dependency injection.
 
-Talking about dependency injection, `xstats` comes with a [xhandler.Handler](https://github.com/rs/xhandler) integration so it can automatically inject the `xstats` client within the `net/context` of each request. Each request's `xstats` instance have its own tags storage ; This let you inject some per request contextual tags to be included with all observations sent within the lifespan of the request.
+Talking about dependency injection, `xstats` comes with a [xhandler.Handler](https://github.com/cool-rest/xhandler) integration so it can automatically inject the `xstats` client within the `net/context` of each request. Each request's `xstats` instance have its own tags storage ; This let you inject some per request contextual tags to be included with all observations sent within the lifespan of the request.
 
 `xstats` is pluggable and comes with integration for `expvar`, `StatsD` and `DogStatsD`, the [Datadog](http://datadoghq.com) augmented version of StatsD with support for tags. More integration may come later (PR welcome).
 
@@ -20,7 +20,7 @@ Talking about dependency injection, `xstats` comes with a [xhandler.Handler](htt
 
 ## Install
 
-    go get github.com/rs/xstats
+    go get github.com/cool-rest/xstats
 
 ## Usage
 
@@ -45,7 +45,7 @@ s.Count("requests", 1, "tag")
 s.Timing("something", 5*time.Millisecond, "tag")
 ```
 
-Integration with [github.com/rs/xhandler](https://github.com/rs/xhandler):
+Integration with [github.com/cool-rest/xhandler](https://github.com/cool-rest/xhandler):
 
 ```go
 var xh xhandler.HandlerC
@@ -82,4 +82,4 @@ if err := http.ListenAndServe(":8080", nil); err != nil {
 
 ## Licenses
 
-All source code is licensed under the [MIT License](https://raw.github.com/rs/xstats/master/LICENSE).
+All source code is licensed under the [MIT License](https://raw.github.com/cool-rest/xstats/master/LICENSE).

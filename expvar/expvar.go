@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/rs/xstats"
+	"github.com/cool-rest/xstats"
 )
 
 type sender struct {

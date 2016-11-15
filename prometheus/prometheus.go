@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/rs/xstats"
+	"github.com/cool-rest/xstats"
 )
 
 type sender struct {
